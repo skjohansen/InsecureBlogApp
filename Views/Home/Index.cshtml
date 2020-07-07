@@ -1,0 +1,23 @@
+﻿@model IEnumerable<BlogPost>
+@{
+
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to insecure blog</h1>
+    <form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="Index">
+        <input type="text" id="blogTitle" name="BlogTitle" /><br />
+        <textarea id="blogpost" name="BlogPost"></textarea><br />
+        <input type="submit" value="Submit" />
+    </form>
+
+    <h2>Posts</h2>
+    @foreach (var item in Model)
+    {
+<p>
+    @Html.Raw(item.Title)<br />
+    @Html.Raw(item.Post)
+</p>
+    }
+</div>
